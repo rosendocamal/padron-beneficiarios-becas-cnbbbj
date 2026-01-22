@@ -40,7 +40,7 @@ with open('../data/processed/S311_CNBBBJ_2025.csv', 'r') as dataset:
         print(f'Table "{name_table}" created succesfully!')
 
         # Insertar los registros del dataset unificado y limpio al database
-        print('Please wait... Inserting records')
+        print('Please wait... Inserting records...')
         for record in dataset:
             # Obtener los valores del registro del dataset
             data = record.strip('\n').split(';')
@@ -50,7 +50,7 @@ with open('../data/processed/S311_CNBBBJ_2025.csv', 'r') as dataset:
             insert_query = f'INSERT INTO {name_table} ({','.join(fields)})\nVALUES ({",".join(["?" for _ in range(9)])})'
 
             cursor.execute(insert_query, values)
-            database.commit()
+        database.commit()
         print('The records have been successfully inserted!')
 
         # Verificar cantidad de registros
