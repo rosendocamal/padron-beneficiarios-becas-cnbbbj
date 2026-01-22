@@ -14,7 +14,7 @@ with open('../data/processed/S311_CNBBBJ_2025.csv', 'r') as dataset:
         fields = dataset.readline().strip('\n').split(';')
         
         # Creación de la tabla de datos
-        name_table = 'BENEFICARIOS'
+        name_table = 'BENEFICIARIOS'
 
         fields_type = {
                 'ID': 'INTEGER PRIMARY KEY AUTOINCREMENT',
