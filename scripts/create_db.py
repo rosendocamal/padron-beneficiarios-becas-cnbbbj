@@ -1,4 +1,6 @@
-import sqlite3, os
+import sqlite3, os, time
+
+start_time = time.time()
 
 # Abrir dataset unificado y limpio
 with open('../data/processed/S311_CNBBBJ_2025.csv', 'r') as dataset:
@@ -54,3 +56,6 @@ with open('../data/processed/S311_CNBBBJ_2025.csv', 'r') as dataset:
         # Verificar cantidad de registros
         cursor.execute(f'SELECT COUNT(*) FROM {name_table}')
         print(f'Total number of records uploaded: {cursor.fetchone()[0]}')
+
+end_time = time.time()
+print(f'TOTAL TIME: {round(((end_time - start_time) / 60), 2)} MIN.')
